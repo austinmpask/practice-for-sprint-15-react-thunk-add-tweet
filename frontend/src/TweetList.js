@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllTweets } from './store/tweet';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllTweets } from "./store/tweet";
+import CreateTweet from "./CreateTweet";
 
 const TweetList = () => {
   const dispatch = useDispatch();
   const tweetList = useSelector((state) => Object.values(state.tweet));
-  console.log(tweetList);
 
   useEffect(() => {
     dispatch(getAllTweets());
@@ -17,6 +17,7 @@ const TweetList = () => {
       {tweetList?.map(({ id, message }) => (
         <p key={id}>{message}</p>
       ))}
+      <CreateTweet />
     </>
   );
 };

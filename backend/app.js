@@ -15,7 +15,6 @@ app.use(cors());
 
 app.use("/", routes);
 
-
 // Catch unhandled requests and forward to error handler.
 app.use((req, res, next) => {
   const err = new Error("The requested resource couldn't be found.");
